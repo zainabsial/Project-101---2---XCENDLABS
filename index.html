@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XcendLabs - AI Automation Agency</title>
+    <meta name="description" content="Transform your business with cutting-edge AI automation solutions. Custom workflows, web development, and growth acceleration services.">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "XcendLabs",
+        "description": "AI Automation Agency specializing in custom workflows and business transformation",
+        "url": "https://xcendlabs.com",
+        "serviceArea": "Global",
+        "service": [
+            "AI Automation",
+            "Web Development",
+            "GHL Funnel Building",
+            "Email Marketing",
+            "Social Media Management",
+            "Growth Acceleration"
+        ]
+    }
+    </script>
+    
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            --secondary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.8);
+            --accent-color: #ff6b6b;
+            --success-color: #4ecdc4;
+            --error-color: #ff4757;
+            --warning-color: #ffa726;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* load PJ+S and Satoshi */
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400&display=swap');
+        @import url('https://fonts.cdnfonts.com/css/satoshi');
+
+        /* body and "normal" text */
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 20px;
+            line-height: 28px;
+            color: rgb(153,153,153);
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* all headlines & any "main" large text */
+        h1, h2, h3, h4, h5, h6,
+        .hero p,
+        .gradient-text {
+            font-family: 'Satoshi', sans-serif;
+            font-weight: 500;
+            font-size: 48px;
+            line-height: 58px;
+            color: rgb(252,252,250);
+        }
+
+        /* Responsive headline font size for mobile */
+        @media (max-width: 600px) {
+            h1, h2, h3, h4, h5, h6,
+            .hero p,
+            .gradient-text {
+                font-size: 32px;
+                line-height: 40px;
+            }
+            body {
+                font-size: 16px;
+                line-height: 24px;
+            }
+        }
+
+        /* Loading State */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 3px solid transparent;
+            border-top: 3px solid var(--accent-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Liquid Glass Effect */
+        .glass-effect {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.15);
+            will-change: transform;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: var(--primary-gradient);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 4s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Focus Styles */
+        *:focus {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            padding: 15px 30px;
+            transition: all 0.3s ease;
+            will-change: background;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+
+        .nav-links a:hover, .nav-links a:focus {
+            color: var(--accent-color);
+            background: rgba(255, 107, 107, 0.1);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gradient);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-links a:hover::after, .nav-links a:focus::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 0 20px;
+            z-index: 2;
+            animation: slideInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 8rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
+            font-size: 21px;
+            line-height: 33px;
+            font-weight: 400;
+            color: rgb(153,153,153);
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 40px;
+            background: var(--primary-gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover, .cta-button:focus {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+        }
+
+        /* Optimized Particles */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+            will-change: transform;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 120px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 80px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            padding: 40px 30px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            will-change: transform;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 25px;
+            background: var(--primary-gradient);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .service-card p {
+            opacity: 0.8;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* Comparison Section */
+        .comparison {
+            padding: 120px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .comparison-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .comparison-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        .comparison-title.others {
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 400;
+        }
+
+        .comparison-title.xcend {
+            background: var(--primary-gradient);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 4s ease-in-out infinite;
+        }
+
+        .comparison-card {
+            padding: 40px;
+            transition: all 0.4s ease;
+            flex: 1;
+            position: relative;
+        }
+
+        .comparison-card.others {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .comparison-card.xcend {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
+            border: 1px solid rgba(255, 107, 107, 0.2);
+        }
+
+        .comparison-card.xcend::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 107, 107, 0.05), rgba(78, 205, 196, 0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .comparison-card.xcend:hover::before {
+            opacity: 1;
+        }
+
+        .comparison-list {
+            list-style: none;
+        }
+
+        .comparison-list li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 0;
+            font-size: 1.1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .comparison-list li:hover,
+        .comparison-card.xcend .comparison-list li:hover {
+            padding-left: 10px;
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 2px 16px 0 rgba(255,107,107,0.16);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 107, 107, 0.22);
+        }
+
+        .comparison-list li:last-child {
+            border-bottom: none;
+        }
+
+        .check-icon, .cross-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+            font-size: 0.9rem;
+        }
+
+        .check-icon {
+            background: var(--success-color);
+            color: white;
+        }
+
+        .cross-icon {
+            background: var(--error-color);
+            color: white;
+        }
+
+        /* Faded/dim style for Other Agencies points */
+        .comparison-card.others .comparison-list li {
+            color: rgba(255,255,255,0.5);
+            opacity: 0.7;
+        }
+        /* Remove hover effect for Other Agencies */
+        .comparison-card.others .comparison-list li:hover {
+            background: none;
+            box-shadow: none;
+            border: none;
+            padding-left: 0;
+        }
+        /* Keep hover effect only for XcendLabs */
+        .comparison-card.xcend .comparison-list li:hover {
+            padding-left: 10px;
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 2px 16px 0 rgba(255,107,107,0.16);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 107, 107, 0.22);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 120px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-form {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 50px;
+            margin-top: 60px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover, .submit-btn:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .form-status.success {
+            background: rgba(78, 205, 196, 0.1);
+            border: 1px solid var(--success-color);
+            color: var(--success-color);
+        }
+
+        .form-status.error {
+            background: rgba(255, 71, 87, 0.1);
+            border: 1px solid var(--error-color);
+            color: var(--error-color);
+        }
+
+        /* Ready to Scale Section */
+        .ready-scale {
+            padding: 120px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .scale-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 100px;
+            position: relative;
+            z-index: 2;
+            border-radius: 16px;
+        }
+
+        .scale-badge {
+            display: inline-block;
+            padding: 10px 25px;
+            background: rgba(255, 107, 107, 0.15);
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: var(--accent-color);
+            animation: pulse 2s infinite;
+        }
+
+        .scale-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .scale-description {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            padding: 80px 20px 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            line-height: 1.6;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover,
+        .footer-section a:focus {
+            color: var(--accent-color);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover,
+        .social-link:focus {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .comparison-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .scale-container {
+                padding: 40px 30px;
+            }
+            
+            .contact-form {
+                padding: 30px 20px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .particles .particle:nth-child(n+21) {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-card {
+                padding: 30px 20px;
+            }
+            
+            .comparison-card {
+                padding: 30px 20px;
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Lazy loading optimization */
+        .lazy-bg {
+            background-image: none;
+            transition: background-image 0.3s ease;
+        }
+
+        .lazy-bg.loaded {
+            background-image: var(--bg-image);
+        }
+
+        /* Liquid Glass Scroll Effect */
+        .liquid-glass {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), 
+                rgba(255, 107, 107, 0.15) 0%, 
+                rgba(78, 205, 196, 0.1) 25%, 
+                transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .liquid-glass.active {
+            opacity: 1;
+        }
+
+        /* Accessibility improvements */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* High contrast mode */
+        @media (prefers-contrast: high) {
+            :root {
+                --glass-bg: rgba(255, 255, 255, 0.15);
+                --glass-border: rgba(255, 255, 255, 0.3);
+            }
+        }
+
+        /* Process Section */
+        .process {
+            padding: 120px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .process-badge {
+            display: inline-block;
+            padding: 10px 30px;
+            background: rgba(255, 107, 107, 0.10);
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: var(--accent-color);
+            margin-top: 0;
+        }
+        .process-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 60px;
+            line-height: 1.15;
+        }
+        .process-steps {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        .process-step {
+            flex: 1 1 280px;
+            max-width: 340px;
+            min-width: 260px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px 30px 30px 30px;
+            margin: 0 10px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .process-step:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 16px 40px rgba(255, 107, 107, 0.10);
+        }
+        .process-icon {
+            font-size: 3.2rem;
+            margin-bottom: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .process-step h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+        .process-step p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+        @media (max-width: 900px) {
+            .process-steps {
+                flex-direction: column;
+                gap: 30px;
+                align-items: center;
+            }
+            .process-step {
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+
+        .comparison-card.xcend .comparison-list li {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loadingScreen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Liquid Glass Effect -->
+    <div class="liquid-glass" id="liquidGlass"></div>
+
+    <!-- Navigation -->
+    <nav class="glass-effect" role="navigation" aria-label="Main navigation">
+        <ul class="nav-links">
+            <li><a href="#home" aria-label="Go to home section">Home</a></li>
+            <li><a href="#services" aria-label="Go to services section">Services</a></li>
+            <li><a href="#comparison" aria-label="Go to comparison section">Why Us</a></li>
+            <li><a href="#process" aria-label="Go to process section">Process</a></li>
+            <li><a href="https://calendly.com/xcendlabs/30min" target="_blank" rel="noopener" class="book-call-btn" aria-label="Book a Call">Book a Call</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home" role="banner">
+        <div class="particles" aria-hidden="true"></div>
+        <div class="hero-content">
+            <h1 class="gradient-text">XcendLabs</h1>
+            <p>We build <strong>badass AI automations</strong> that transform businesses and skyrocket growth. From intelligent workflows to cutting-edge solutions that deliver real results.</p>
+            <a href="https://calendly.com/xcendlabs/30min" target="_blank" rel="noopener" class="cta-button" aria-label="Start your business transformation">Start Your Transformation</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services fade-in" id="services" role="main">
+        <h2 class="section-title gradient-text">Our Services</h2>
+        <p class="section-subtitle">Cutting-edge solutions designed to elevate your business to new heights</p>
+        
+        <div class="services-grid">
+            <div class="service-card glass-effect" tabindex="0">
+                <div class="service-icon" aria-hidden="true">🤖</div>
+                <h3>AI Automation</h3>
+                <p>Custom AI workflows that eliminate repetitive tasks, boost efficiency, and unlock unprecedented productivity gains for your business operations.</p>
+            </div>
+            
+            <div class="service-card glass-effect" tabindex="0">
+                <div class="service-icon" aria-hidden="true">🌐</div>
+                <h3>Web Development</h3>
+                <p>Stunning, high-performance websites built with modern technologies. Responsive designs that convert visitors into customers and drive revenue.</p>
+            </div>
+            
+            <div class="service-card glass-effect" tabindex="0">
+                <div class="service-icon" aria-hidden="true">📊</div>
+                <h3>GHL Funnel Building</h3>
+                <p>High-converting sales funnels using GoHighLevel. Optimized customer journeys that maximize your revenue potential and scale your business.</p>
+            </div>
+            
+            <div class="service-card glass-effect" tabindex="0">
+                <div class="service-icon" aria-hidden="true">📧</div>
+                <h3>Email Marketing</h3>
+                <p>Strategic email campaigns that nurture leads and drive conversions. Automated sequences that work 24/7 to grow your business.</p>
+            </div>
+            
+            <div class="service-card glass-effect" tabindex="0">
+                <div class="service-icon" aria-hidden="true">📱</div>
+                <h3>Social Media Management</h3>
+                <p>Comprehensive social media strategies that build brand awareness, engage audiences, and drive meaningful business results across all platforms.</p>
+            </div>
+            
+            <div class="service-card glass-effect" tabindex="0">
+                <div class="service-icon" aria-hidden="true">⚡</div>
+                <h3>Growth Acceleration</h3>
+                <p>Data-driven strategies and advanced analytics to identify growth opportunities and scale your business rapidly with measurable results.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison fade-in" id="comparison">
+        <h2 class="section-title gradient-text">Raising the Bar for Business Growth</h2>
+        
+        <div class="comparison-container">
+            <div class="comparison-column slide-left">
+                <h3 class="comparison-title others">Other Agencies</h3>
+                <div class="comparison-card others glass-effect">
+                    <ul class="comparison-list">
+                        <li>
+                            <div class="cross-icon" aria-label="Not included">✕</div>
+                            <span>Generic, one-size-fits-all solutions</span>
+                        </li>
+                        <li>
+                            <div class="cross-icon" aria-label="Not included">✕</div>
+                            <span>Slow project delivery & lack of innovation</span>
+                        </li>
+                        <li>
+                            <div class="cross-icon" aria-label="Not included">✕</div>
+                            <span>Minimal automation, mostly manual work</span>
+                        </li>
+                        <li>
+                            <div class="cross-icon" aria-label="Not included">✕</div>
+                            <span>Poor communication & support</span>
+                        </li>
+                        <li>
+                            <div class="cross-icon" aria-label="Not included">✕</div>
+                            <span>Little to no measurable ROI</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="comparison-column slide-right">
+                <h3 class="comparison-title xcend">XcendLabs</h3>
+                <div class="comparison-card xcend glass-effect">
+                    <ul class="comparison-list">
+                        <li>
+                            <div class="check-icon" aria-label="Included">✔</div>
+                            <span>Custom AI-driven solutions for your business</span>
+                        </li>
+                        <li>
+                            <div class="check-icon" aria-label="Included">✔</div>
+                            <span>Lightning-fast delivery & continuous innovation</span>
+                        </li>
+                        <li>
+                            <div class="check-icon" aria-label="Included">✔</div>
+                            <span>End-to-end automation for maximum efficiency</span>
+                        </li>
+                        <li>
+                            <div class="check-icon" aria-label="Included">✔</div>
+                            <span>Proactive communication & dedicated support</span>
+                        </li>
+                        <li>
+                            <div class="check-icon" aria-label="Included">✔</div>
+                            <span>Clear, measurable ROI & business growth</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section (replaces Contact) -->
+    <section class="process fade-in" id="process">
+        <div class="process-badge glass-effect">Process</div>
+        <h2 class="process-title gradient-text">Our Simple 3-step Process<br>to Skyrocket your Business.</h2>
+        <div class="process-steps">
+            <div class="process-step glass-effect">
+                <div class="process-icon" aria-hidden="true">👤<span style="color:var(--accent-color);font-size:1.2em;">&#x1F50D;</span></div>
+                <h3>Funnel Audit</h3>
+                <p>We'll start by analysing your sales funnel and seeing what's holding you back.</p>
+            </div>
+            <div class="process-step glass-effect">
+                <div class="process-icon" aria-hidden="true">&#128187;<span style="color:var(--accent-color);font-size:1.2em;">&#9881;&#65039;</span></div>
+                <h3>Campaign Setup</h3>
+                <p>Then, with your business goals in mind, we will set up the advertising campaigns.</p>
+            </div>
+            <div class="process-step glass-effect">
+                <div class="process-icon" aria-hidden="true">&#128176;<span style="color:var(--accent-color);font-size:1.2em;">&#36;</span></div>
+                <h3>Maximise Profit</h3>
+                <p>We'll then work towards driving the cost per action down to maximise profit.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ready to Scale Section -->
+    <section class="ready-scale fade-in" id="ready-scale">
+        <div class="scale-container glass-effect">
+            <div class="scale-badge">Ready to Scale?</div>
+            <h2 class="scale-title gradient-text">Let's Accelerate Your Growth Together</h2>
+            <p class="scale-description">Unlock the next level of business performance with XcendLabs. Our team is ready to design, build, and launch the automations and digital solutions that will set you apart from the competition.</p>
+            <a href="https://calendly.com/xcendlabs/30min" target="_blank" rel="noopener" class="cta-button" aria-label="Get Started">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom" style="text-align:center; padding: 40px 0 0 0; color: var(--text-secondary); font-size: 1rem;">
+            &copy; 2025 XcendLabs
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Loading screen
+        window.addEventListener('load', function() {
+            document.getElementById('loadingScreen').classList.add('hidden');
+        });
+
+        // Scroll animations
+        function revealOnScroll() {
+            var reveals = document.querySelectorAll('.fade-in, .slide-left, .slide-right');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('visible');
+                }
+            }
+        }
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('DOMContentLoaded', revealOnScroll);
+
+        // Liquid glass effect
+        document.addEventListener('mousemove', function(e) {
+            var glass = document.getElementById('liquidGlass');
+            var x = (e.clientX / window.innerWidth) * 100;
+            var y = (e.clientY / window.innerHeight) * 100;
+            glass.style.setProperty('--x', x + '%');
+            glass.style.setProperty('--y', y + '%');
+            glass.classList.add('active');
+            clearTimeout(window.liquidGlassTimeout);
+            window.liquidGlassTimeout = setTimeout(function() {
+                glass.classList.remove('active');
+            }, 800);
+        });
+
+        // Contact form (dummy handler)
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var status = document.getElementById('formStatus');
+            status.style.display = 'block';
+            status.className = 'form-status success';
+            status.textContent = 'Thank you! We have received your message.';
+            this.reset();
+            setTimeout(function() {
+                status.style.display = 'none';
+            }, 4000);
+        });
+    </script>
+</body>
+</html>
