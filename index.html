@@ -245,6 +245,40 @@
             width: 100%;
         }
 
+        /* Book a Call Button Styles */
+        .book-call-btn {
+            background: var(--primary-gradient) !important;
+            color: white !important;
+            padding: 12px 24px !important;
+            border-radius: 25px !important;
+            font-weight: 600 !important;
+            font-size: 0.95rem !important;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3) !important;
+            border: none !important;
+            position: relative !important;
+            overflow: hidden !important;
+            transition: all 0.2s ease !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+        }
+
+        .book-call-btn:hover, 
+        .book-call-btn:focus {
+            opacity: 0.9 !important;
+            color: white !important;
+            background: var(--primary-gradient) !important;
+        }
+
+        .book-call-btn::after {
+            display: none !important;
+        }
+
+        /* Remove the default nav link styling for book-call-btn */
+        .nav-links a.book-call-btn:hover,
+        .nav-links a.book-call-btn:focus {
+            background: var(--primary-gradient) !important;
+        }
+
         /* Hero Section */
         .hero {
             height: 100vh;
@@ -573,110 +607,6 @@
             border: 1px solid rgba(255, 107, 107, 0.22);
         }
 
-        /* Contact Section */
-        .contact {
-            padding: 120px 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .contact-form {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 50px;
-            margin-top: 60px;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-            text-align: left;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--text-primary);
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 15px 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            color: var(--text-primary);
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 18px;
-            background: var(--primary-gradient);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 10px;
-        }
-
-        .submit-btn:hover, .submit-btn:focus {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
-        }
-
-        .submit-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .form-status {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 8px;
-            display: none;
-        }
-
-        .form-status.success {
-            background: rgba(78, 205, 196, 0.1);
-            border: 1px solid var(--success-color);
-            color: var(--success-color);
-        }
-
-        .form-status.error {
-            background: rgba(255, 71, 87, 0.1);
-            border: 1px solid var(--error-color);
-            color: var(--error-color);
-        }
-
         /* Ready to Scale Section */
         .ready-scale {
             padding: 120px 20px;
@@ -813,16 +743,13 @@
                 padding: 40px 30px;
             }
             
-            .contact-form {
-                padding: 30px 20px;
-            }
-            
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-            
             .particles .particle:nth-child(n+21) {
                 display: none;
+            }
+
+            .book-call-btn {
+                padding: 10px 20px !important;
+                font-size: 0.9rem !important;
             }
         }
 
@@ -837,6 +764,17 @@
             
             .comparison-card {
                 padding: 30px 20px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .book-call-btn {
+                margin-top: 10px;
+                width: 100%;
+                text-align: center;
             }
         }
 
@@ -1024,7 +962,9 @@
             <li><a href="#services" aria-label="Go to services section">Services</a></li>
             <li><a href="#comparison" aria-label="Go to comparison section">Why Us</a></li>
             <li><a href="#process" aria-label="Go to process section">Process</a></li>
-            <li><a href="https://calendly.com/xcendlabs/30min" target="_blank" rel="noopener" class="book-call-btn" aria-label="Book a Call">Book a Call</a></li>
+            <li><a href="https://calendly.com/xcendlabs/30min" target="_blank" rel="noopener" class="book-call-btn" aria-label="Book a Call">
+                <span>Book a Call</span>
+            </a></li>
         </ul>
     </nav>
 
@@ -1044,41 +984,41 @@
         <p class="section-subtitle">Cutting-edge solutions designed to elevate your business to new heights</p>
         
         <div class="services-grid">
-            <div class="service-card glass-effect" tabindex="0">
+            <article class="service-card glass-effect" tabindex="0">
                 <div class="service-icon" aria-hidden="true">🤖</div>
                 <h3>AI Automation</h3>
-                <p>Custom AI workflows that eliminate repetitive tasks, boost efficiency, and unlock unprecedented productivity gains for your business operations.</p>
-            </div>
+                <p>Custom AI workflows that eliminate repetitive tasks, boost efficiency, and unlock unprecedented productivity gains.</p>
+            </article>
             
-            <div class="service-card glass-effect" tabindex="0">
+            <article class="service-card glass-effect" tabindex="0">
                 <div class="service-icon" aria-hidden="true">🌐</div>
                 <h3>Web Development</h3>
                 <p>Stunning, high-performance websites built with modern technologies. Responsive designs that convert visitors into customers and drive revenue.</p>
-            </div>
+            </article>
             
-            <div class="service-card glass-effect" tabindex="0">
+            <article class="service-card glass-effect" tabindex="0">
                 <div class="service-icon" aria-hidden="true">📊</div>
                 <h3>GHL Funnel Building</h3>
                 <p>High-converting sales funnels using GoHighLevel. Optimized customer journeys that maximize your revenue potential and scale your business.</p>
-            </div>
+            </article>
             
-            <div class="service-card glass-effect" tabindex="0">
+            <article class="service-card glass-effect" tabindex="0">
                 <div class="service-icon" aria-hidden="true">📧</div>
                 <h3>Email Marketing</h3>
                 <p>Strategic email campaigns that nurture leads and drive conversions. Automated sequences that work 24/7 to grow your business.</p>
-            </div>
+            </article>
             
-            <div class="service-card glass-effect" tabindex="0">
+            <article class="service-card glass-effect" tabindex="0">
                 <div class="service-icon" aria-hidden="true">📱</div>
                 <h3>Social Media Management</h3>
                 <p>Comprehensive social media strategies that build brand awareness, engage audiences, and drive meaningful business results across all platforms.</p>
-            </div>
+            </article>
             
-            <div class="service-card glass-effect" tabindex="0">
+            <article class="service-card glass-effect" tabindex="0">
                 <div class="service-icon" aria-hidden="true">⚡</div>
                 <h3>Growth Acceleration</h3>
                 <p>Data-driven strategies and advanced analytics to identify growth opportunities and scale your business rapidly with measurable results.</p>
-            </div>
+            </article>
         </div>
     </section>
 
@@ -1087,80 +1027,50 @@
         <h2 class="section-title gradient-text">Raising the Bar for Business Growth</h2>
         
         <div class="comparison-container">
-            <div class="comparison-column slide-left">
+            <div class="comparison-column">
                 <h3 class="comparison-title others">Other Agencies</h3>
                 <div class="comparison-card others glass-effect">
                     <ul class="comparison-list">
-                        <li>
-                            <div class="cross-icon" aria-label="Not included">✕</div>
-                            <span>Generic, one-size-fits-all solutions</span>
-                        </li>
-                        <li>
-                            <div class="cross-icon" aria-label="Not included">✕</div>
-                            <span>Slow project delivery & lack of innovation</span>
-                        </li>
-                        <li>
-                            <div class="cross-icon" aria-label="Not included">✕</div>
-                            <span>Minimal automation, mostly manual work</span>
-                        </li>
-                        <li>
-                            <div class="cross-icon" aria-label="Not included">✕</div>
-                            <span>Poor communication & support</span>
-                        </li>
-                        <li>
-                            <div class="cross-icon" aria-label="Not included">✕</div>
-                            <span>Little to no measurable ROI</span>
-                        </li>
+                        <li><span class="cross-icon" aria-label="Not included">✕</span>Generic, one-size-fits-all solutions</li>
+                        <li><span class="cross-icon" aria-label="Not included">✕</span>Slow project delivery & lack of innovation</li>
+                        <li><span class="cross-icon" aria-label="Not included">✕</span>Minimal automation, mostly manual work</li>
+                        <li><span class="cross-icon" aria-label="Not included">✕</span>Poor communication & support</li>
+                        <li><span class="cross-icon" aria-label="Not included">✕</span>Little to no measurable ROI</li>
                     </ul>
                 </div>
             </div>
-            <div class="comparison-column slide-right">
+            <div class="comparison-column">
                 <h3 class="comparison-title xcend">XcendLabs</h3>
                 <div class="comparison-card xcend glass-effect">
                     <ul class="comparison-list">
-                        <li>
-                            <div class="check-icon" aria-label="Included">✔</div>
-                            <span>Custom AI-driven solutions for your business</span>
-                        </li>
-                        <li>
-                            <div class="check-icon" aria-label="Included">✔</div>
-                            <span>Lightning-fast delivery & continuous innovation</span>
-                        </li>
-                        <li>
-                            <div class="check-icon" aria-label="Included">✔</div>
-                            <span>End-to-end automation for maximum efficiency</span>
-                        </li>
-                        <li>
-                            <div class="check-icon" aria-label="Included">✔</div>
-                            <span>Proactive communication & dedicated support</span>
-                        </li>
-                        <li>
-                            <div class="check-icon" aria-label="Included">✔</div>
-                            <span>Clear, measurable ROI & business growth</span>
-                        </li>
+                        <li><span class="check-icon" aria-label="Included">✔</span>Custom AI-driven solutions for your business</li>
+                        <li><span class="check-icon" aria-label="Included">✔</span>Lightning-fast delivery & continuous innovation</li>
+                        <li><span class="check-icon" aria-label="Included">✔</span>End-to-end automation for maximum efficiency</li>
+                        <li><span class="check-icon" aria-label="Included">✔</span>Proactive communication & dedicated support</li>
+                        <li><span class="check-icon" aria-label="Included">✔</span>Clear, measurable ROI & business growth</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Process Section (replaces Contact) -->
+    <!-- Process Section -->
     <section class="process fade-in" id="process">
         <div class="process-badge glass-effect">Process</div>
-        <h2 class="process-title gradient-text">Our Simple 3-step Process<br>to Skyrocket your Business.</h2>
+        <h2 class="process-title gradient-text">Our Simple 3‑Step Process to Skyrocket Your Business</h2>
         <div class="process-steps">
             <div class="process-step glass-effect">
-                <div class="process-icon" aria-hidden="true">👤<span style="color:var(--accent-color);font-size:1.2em;">&#x1F50D;</span></div>
+                <div class="process-icon" aria-hidden="true">🔍</div>
                 <h3>Funnel Audit</h3>
-                <p>We'll start by analysing your sales funnel and seeing what's holding you back.</p>
+                <p>We start by analyzing your sales funnel and identifying areas for improvement.</p>
             </div>
             <div class="process-step glass-effect">
-                <div class="process-icon" aria-hidden="true">&#128187;<span style="color:var(--accent-color);font-size:1.2em;">&#9881;&#65039;</span></div>
+                <div class="process-icon" aria-hidden="true">⚙️</div>
                 <h3>Campaign Setup</h3>
                 <p>Then, with your business goals in mind, we will set up the advertising campaigns.</p>
             </div>
             <div class="process-step glass-effect">
-                <div class="process-icon" aria-hidden="true">&#128176;<span style="color:var(--accent-color);font-size:1.2em;">&#36;</span></div>
+                <div class="process-icon" aria-hidden="true">💰</div>
                 <h3>Maximise Profit</h3>
                 <p>We'll then work towards driving the cost per action down to maximise profit.</p>
             </div>
@@ -1172,8 +1082,8 @@
         <div class="scale-container glass-effect">
             <div class="scale-badge">Ready to Scale?</div>
             <h2 class="scale-title gradient-text">Let's Accelerate Your Growth Together</h2>
-            <p class="scale-description">Unlock the next level of business performance with XcendLabs. Our team is ready to design, build, and launch the automations and digital solutions that will set you apart from the competition.</p>
-            <a href="https://calendly.com/xcendlabs/30min" target="_blank" rel="noopener" class="cta-button" aria-label="Get Started">Get Started</a>
+            <p class="scale-description">Unlock the next level of performance with XcendLabs. Our team is ready to design, build, and launch the automations and digital solutions that set you apart.</p>
+            <a href="https://calendly.com/xcendlabs/30min" target="_blank" rel="noopener" class="cta-button">Get Started</a>
         </div>
     </section>
 
@@ -1186,52 +1096,62 @@
 
     <!-- Scripts -->
     <script>
-        // Loading screen
+        // Toggle mobile nav
+        const navToggle = document.getElementById('navToggle');
+        const mainNav = document.getElementById('mainNav');
+        if (navToggle && mainNav) {
+            navToggle.addEventListener('click', () => mainNav.classList.toggle('open'));
+        }
+
+        // Hide loading screen
         window.addEventListener('load', function() {
             document.getElementById('loadingScreen').classList.add('hidden');
         });
 
-        // Scroll animations
-        function revealOnScroll() {
-            var reveals = document.querySelectorAll('.fade-in, .slide-left, .slide-right');
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add('visible');
-                }
-            }
-        }
-        window.addEventListener('scroll', revealOnScroll);
-        window.addEventListener('DOMContentLoaded', revealOnScroll);
+        // Reveal on scroll via IntersectionObserver
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) e.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
         // Liquid glass effect
         document.addEventListener('mousemove', function(e) {
-            var glass = document.getElementById('liquidGlass');
-            var x = (e.clientX / window.innerWidth) * 100;
-            var y = (e.clientY / window.innerHeight) * 100;
-            glass.style.setProperty('--x', x + '%');
-            glass.style.setProperty('--y', y + '%');
-            glass.classList.add('active');
-            clearTimeout(window.liquidGlassTimeout);
-            window.liquidGlassTimeout = setTimeout(function() {
-                glass.classList.remove('active');
-            }, 800);
+            const glass = document.getElementById('liquidGlass');
+            if (glass) {
+                const x = (e.clientX / window.innerWidth) * 100 + '%';
+                const y = (e.clientY / window.innerHeight) * 100 + '%';
+                glass.style.setProperty('--x', x);
+                glass.style.setProperty('--y', y);
+                glass.classList.add('active');
+                clearTimeout(window._glassTimer);
+                window._glassTimer = setTimeout(() => glass.classList.remove('active'), 800);
+            }
         });
 
-        // Contact form (dummy handler)
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            var status = document.getElementById('formStatus');
-            status.style.display = 'block';
-            status.className = 'form-status success';
-            status.textContent = 'Thank you! We have received your message.';
-            this.reset();
-            setTimeout(function() {
-                status.style.display = 'none';
-            }, 4000);
-        });
+        // Form handling with validation
+        const form = document.getElementById('contactForm');
+        const status = document.getElementById('formStatus');
+        
+        if (form && status) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                if (!form.checkValidity()) {
+                    status.textContent = 'Please fill out all required fields.';
+                    status.className = 'form-status error';
+                    status.style.display = 'block';
+                    return;
+                }
+                // Simulate success
+                status.textContent = 'Thank you! We have received your message.';
+                status.className = 'form-status success';
+                status.style.display = 'block';
+                form.reset();
+                setTimeout(() => status.style.display = 'none', 4000);
+            });
+        }
     </script>
 </body>
 </html>
