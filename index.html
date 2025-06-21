@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XcendLabs - AI Automation Agency</title>
+    <title>XcendLabs</title>
+    <link rel="icon" type="image/png" href="Screenshot_2025-06-21_122218-removebg-preview.png">
     <meta name="description" content="Transform your business with cutting-edge AI automation solutions. Custom workflows, web development, and growth acceleration services.">
     
     <!-- Structured Data -->
@@ -199,36 +200,46 @@
         /* Navigation */
         nav {
             position: fixed;
-            top: 20px;
+            top: 15.3px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 1000;
-            padding: 15px 30px;
+            padding: 11.475px 22.95px;
             transition: all 0.3s ease;
             will-change: background;
         }
 
+        .nav-bar-flex {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            margin-right: 22px;
+        }
         .nav-links {
             display: flex;
-            gap: 30px;
+            align-items: center;
+            flex: 1 1 auto;
+            gap: 22.95px;
             list-style: none;
         }
-
         .nav-links a {
             color: var(--text-primary);
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
             position: relative;
-            padding: 8px 16px;
-            border-radius: 8px;
+            padding: 6.12px 12.24px;
+            border-radius: 6.12px;
+            font-size: 15.3px;
         }
-
         .nav-links a:hover, .nav-links a:focus {
             color: var(--accent-color);
             background: rgba(255, 107, 107, 0.1);
         }
-
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -240,7 +251,6 @@
             transition: all 0.3s ease;
             transform: translateX(-50%);
         }
-
         .nav-links a:hover::after, .nav-links a:focus::after {
             width: 100%;
         }
@@ -249,10 +259,10 @@
         .book-call-btn {
             background: var(--primary-gradient) !important;
             color: white !important;
-            padding: 12px 24px !important;
-            border-radius: 25px !important;
+            padding: 9.18px 18.36px !important;
+            border-radius: 19.125px !important;
             font-weight: 600 !important;
-            font-size: 0.95rem !important;
+            font-size: 0.73rem !important;
             box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3) !important;
             border: none !important;
             position: relative !important;
@@ -261,18 +271,15 @@
             text-transform: uppercase !important;
             letter-spacing: 0.5px !important;
         }
-
         .book-call-btn:hover, 
         .book-call-btn:focus {
             opacity: 0.9 !important;
             color: white !important;
             background: var(--primary-gradient) !important;
         }
-
         .book-call-btn::after {
             display: none !important;
         }
-
         /* Remove the default nav link styling for book-call-btn */
         .nav-links a.book-call-btn:hover,
         .nav-links a.book-call-btn:focus {
@@ -289,21 +296,18 @@
             position: relative;
             overflow: hidden;
         }
-
         .hero-content {
             max-width: 900px;
             padding: 0 20px;
             z-index: 2;
             animation: slideInUp 1s ease-out;
         }
-
         .hero h1 {
             font-size: clamp(3rem, 8vw, 8rem);
             font-weight: 900;
             margin-bottom: 20px;
             line-height: 1.1;
         }
-
         .hero p {
             font-family: 'Plus Jakarta Sans', sans-serif !important;
             font-size: 21px;
@@ -316,10 +320,9 @@
             margin-left: auto;
             margin-right: auto;
         }
-
         .cta-button {
             display: inline-block;
-            padding: 18px 40px;
+            padding: 9px 40px;
             background: var(--primary-gradient);
             color: white;
             text-decoration: none;
@@ -331,7 +334,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .cta-button::before {
             content: '';
             position: absolute;
@@ -342,11 +344,9 @@
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: left 0.5s;
         }
-
         .cta-button:hover::before {
             left: 100%;
         }
-
         .cta-button:hover, .cta-button:focus {
             transform: translateY(-3px);
             box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
@@ -362,7 +362,6 @@
             z-index: 1;
             pointer-events: none;
         }
-
         .particle {
             position: absolute;
             width: 3px;
@@ -375,18 +374,16 @@
 
         /* Services Section */
         .services {
-            padding: 120px 20px;
+            padding: 96px 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
-
         .section-title {
             text-align: center;
             font-size: clamp(2.5rem, 5vw, 3.5rem);
             font-weight: 800;
             margin-bottom: 20px;
         }
-
         .section-subtitle {
             text-align: center;
             font-size: 1.2rem;
@@ -396,14 +393,12 @@
             margin-left: auto;
             margin-right: auto;
         }
-
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
             margin-top: 60px;
         }
-
         .service-card {
             padding: 40px 30px;
             transition: all 0.4s ease;
@@ -412,7 +407,6 @@
             cursor: pointer;
             will-change: transform;
         }
-
         .service-card::before {
             content: '';
             position: absolute;
@@ -424,16 +418,13 @@
             opacity: 0;
             transition: opacity 0.3s ease;
         }
-
         .service-card:hover::before {
             opacity: 1;
         }
-
         .service-card:hover {
             transform: translateY(-10px) scale(1.02);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
         }
-
         .service-icon {
             width: 70px;
             height: 70px;
@@ -446,18 +437,15 @@
             font-size: 1.8rem;
             transition: all 0.3s ease;
         }
-
         .service-card:hover .service-icon {
             transform: scale(1.1) rotate(5deg);
         }
-
         .service-card h3 {
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 15px;
             color: var(--text-primary);
         }
-
         .service-card p {
             opacity: 0.8;
             line-height: 1.7;
@@ -466,36 +454,31 @@
 
         /* Comparison Section */
         .comparison {
-            padding: 120px 20px;
+            padding: 96px 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
-
         .comparison-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
             margin-top: 60px;
         }
-
         .comparison-column {
             display: flex;
             flex-direction: column;
             gap: 20px;
         }
-
         .comparison-title {
             font-size: 2.2rem;
             font-weight: 800;
             text-align: center;
             margin-bottom: 0;
         }
-
         .comparison-title.others {
             color: rgba(255, 255, 255, 0.6);
             font-weight: 400;
         }
-
         .comparison-title.xcend {
             background: var(--primary-gradient);
             background-size: 300% 300%;
@@ -504,23 +487,19 @@
             -webkit-text-fill-color: transparent;
             animation: gradientShift 4s ease-in-out infinite;
         }
-
         .comparison-card {
             padding: 40px;
             transition: all 0.4s ease;
             flex: 1;
             position: relative;
         }
-
         .comparison-card.others {
             background: rgba(255, 255, 255, 0.02);
         }
-
         .comparison-card.xcend {
             background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
             border: 1px solid rgba(255, 107, 107, 0.2);
         }
-
         .comparison-card.xcend::before {
             content: '';
             position: absolute;
@@ -532,15 +511,12 @@
             opacity: 0;
             transition: opacity 0.3s ease;
         }
-
         .comparison-card.xcend:hover::before {
             opacity: 1;
         }
-
         .comparison-list {
             list-style: none;
         }
-
         .comparison-list li {
             display: flex;
             align-items: center;
@@ -550,7 +526,6 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.3s ease;
         }
-
         .comparison-list li:hover,
         .comparison-card.xcend .comparison-list li:hover {
             padding-left: 10px;
@@ -559,11 +534,9 @@
             border-radius: 8px;
             border: 1px solid rgba(255, 107, 107, 0.22);
         }
-
         .comparison-list li:last-child {
             border-bottom: none;
         }
-
         .check-icon, .cross-icon {
             width: 24px;
             height: 24px;
@@ -575,17 +548,14 @@
             flex-shrink: 0;
             font-size: 0.9rem;
         }
-
         .check-icon {
             background: var(--success-color);
             color: white;
         }
-
         .cross-icon {
             background: var(--error-color);
             color: white;
         }
-
         /* Faded/dim style for Other Agencies points */
         .comparison-card.others .comparison-list li {
             color: rgba(255,255,255,0.5);
@@ -609,11 +579,10 @@
 
         /* Ready to Scale Section */
         .ready-scale {
-            padding: 120px 20px;
+            padding: 96px 20px;
             text-align: center;
             position: relative;
         }
-
         .scale-container {
             max-width: 1100px;
             margin: 0 auto;
@@ -622,7 +591,6 @@
             z-index: 2;
             border-radius: 16px;
         }
-
         .scale-badge {
             display: inline-block;
             padding: 10px 25px;
@@ -635,14 +603,12 @@
             color: var(--accent-color);
             animation: pulse 2s infinite;
         }
-
         .scale-title {
             font-size: clamp(2.5rem, 5vw, 3.5rem);
             font-weight: 800;
             margin-bottom: 30px;
             line-height: 1.2;
         }
-
         .scale-description {
             font-size: 1.2rem;
             opacity: 0.8;
@@ -653,70 +619,26 @@
         /* Footer */
         .footer {
             background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
-            padding: 80px 20px 40px;
+            padding: 40px 20px 40px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-section h3 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            color: var(--text-primary);
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            line-height: 1.6;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover,
-        .footer-section a:focus {
-            color: var(--accent-color);
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 50%;
+        .footer-logo-center {
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            margin: 30px 0 30px 0;
         }
-
-        .social-link:hover,
-        .social-link:focus {
-            background: var(--accent-color);
-            transform: translateY(-2px);
+        .footer-logo-center img {
+            height: 36px;
+            margin-right: 14px;
         }
-
+        .footer-logo-center span {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.7rem;
+            color: #fff;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
         .footer-bottom {
             text-align: center;
             padding-top: 40px;
@@ -746,13 +668,11 @@
             .particles .particle:nth-child(n+21) {
                 display: none;
             }
-
             .book-call-btn {
                 padding: 10px 20px !important;
                 font-size: 0.9rem !important;
             }
         }
-
         @media (max-width: 480px) {
             .services-grid {
                 grid-template-columns: 1fr;
@@ -765,7 +685,6 @@
             .comparison-card {
                 padding: 30px 20px;
             }
-
             .nav-links {
                 flex-wrap: wrap;
                 justify-content: center;
@@ -784,29 +703,24 @@
             transform: translateY(30px);
             transition: all 0.8s ease;
         }
-
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
-
         .slide-left {
             opacity: 0;
             transform: translateX(-50px);
             transition: all 0.8s ease;
         }
-
         .slide-left.visible {
             opacity: 1;
             transform: translateX(0);
         }
-
         .slide-right {
             opacity: 0;
             transform: translateX(50px);
             transition: all 0.8s ease;
         }
-
         .slide-right.visible {
             opacity: 1;
             transform: translateX(0);
@@ -817,7 +731,6 @@
             background-image: none;
             transition: background-image 0.3s ease;
         }
-
         .lazy-bg.loaded {
             background-image: var(--bg-image);
         }
@@ -838,7 +751,6 @@
             opacity: 0;
             transition: opacity 0.3s ease;
         }
-
         .liquid-glass.active {
             opacity: 1;
         }
@@ -862,7 +774,7 @@
 
         /* Process Section */
         .process {
-            padding: 120px 20px;
+            padding: 96px 20px;
             max-width: 1200px;
             margin: 0 auto;
             text-align: center;
@@ -940,9 +852,23 @@
                 width: 100%;
             }
         }
-
         .comparison-card.xcend .comparison-list li {
             color: #fff;
+        }
+        .logo-img {
+            display: block;
+            height: 24.48px;
+            width: auto;
+        }
+
+        .blur-in {
+            opacity: 0;
+            filter: blur(12px);
+            transition: opacity 1.5s cubic-bezier(0.4,0,0.2,1), filter 1.5s cubic-bezier(0.4,0,0.2,1);
+        }
+        .blur-in.visible {
+            opacity: 1;
+            filter: blur(0);
         }
     </style>
 </head>
@@ -957,15 +883,16 @@
 
     <!-- Navigation -->
     <nav class="glass-effect" role="navigation" aria-label="Main navigation">
-        <ul class="nav-links">
-            <li><a href="#home" aria-label="Go to home section">Home</a></li>
-            <li><a href="#services" aria-label="Go to services section">Services</a></li>
-            <li><a href="#comparison" aria-label="Go to comparison section">Why Us</a></li>
-            <li><a href="#process" aria-label="Go to process section">Process</a></li>
-            <li><a href="https://calendly.com/xcendlabs/30min" target="_blank" rel="noopener" class="book-call-btn" aria-label="Book a Call">
-                <span>Book a Call</span>
-            </a></li>
-        </ul>
+        <div class="nav-bar-flex">
+            <span class="nav-logo"><img src="Screenshot_2025-06-21_122218-removebg-preview.png" alt="XcendLabs Logo" class="logo-img"></span>
+            <ul class="nav-links">
+                <li><a href="#home" aria-label="Go to home section">Home</a></li>
+                <li><a href="#services" aria-label="Go to services section">Services</a></li>
+                <li><a href="#comparison" aria-label="Go to comparison section">Why Us</a></li>
+                <li><a href="#process" aria-label="Go to process section">Process</a></li>
+                <li><a href="https://calendly.com/xcendlabs/30min" target="_blank" rel="noopener" class="book-call-btn" aria-label="Book a Call"><span>Book a Call</span></a></li>
+            </ul>
+        </div>
     </nav>
 
     <!-- Hero Section -->
@@ -976,6 +903,12 @@
             <p>We build <strong>badass AI automations</strong> that transform businesses and skyrocket growth. From intelligent workflows to cutting-edge solutions that deliver real results.</p>
             <a href="https://calendly.com/xcendlabs/30min" target="_blank" rel="noopener" class="cta-button" aria-label="Start your business transformation">Start Your Transformation</a>
         </div>
+    </section>
+
+    <!-- XcendLabs Statement Section -->
+    <section class="xcend-intro" style="text-align:center; max-width: 1100px; margin: 0 auto 32px auto;">
+        <p class="blur-in" style="font-family: 'Satoshi', 'Satoshi Placeholder', sans-serif; font-weight: 500; font-size: 40.8px; line-height: 49.3px; color: rgb(252,252,250); margin: 0 0 32px 0;">At XcendLabs, we engineer unstoppable growth. With custom AI automations and bold strategies, we break barriers, scale faster, and deliver results that go beyond expectations.</p>
+        <a href="https://calendly.com/xcendlabs/30min" class="demo-btn" style="display: inline-block; margin-top: 8px; padding: 7px 32.3px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 0.98rem; border-radius: 23.8px; background: linear-gradient(45deg, #ff6b6b, #4ecdc4); color: #fff; text-decoration: none; box-shadow: 0 4px 15px rgba(255, 107, 107, 0.18); transition: opacity 0.2s;">Book a Demo &rarr;</a>
     </section>
 
     <!-- Services Section -->
@@ -1061,18 +994,18 @@
         <div class="process-steps">
             <div class="process-step glass-effect">
                 <div class="process-icon" aria-hidden="true">🔍</div>
-                <h3>Funnel Audit</h3>
-                <p>We start by analyzing your sales funnel and identifying areas for improvement.</p>
+                <h3>Deep Diagnosis</h3>
+                <p>We find what's broken and use AI to dig deep into the root causes.</p>
             </div>
             <div class="process-step glass-effect">
                 <div class="process-icon" aria-hidden="true">⚙️</div>
-                <h3>Campaign Setup</h3>
-                <p>Then, with your business goals in mind, we will set up the advertising campaigns.</p>
+                <h3>Automation Setup</h3>
+                <p>Next, we automate what matters — with systems that actually drive growth.</p>
             </div>
             <div class="process-step glass-effect">
                 <div class="process-icon" aria-hidden="true">💰</div>
-                <h3>Maximise Profit</h3>
-                <p>We'll then work towards driving the cost per action down to maximise profit.</p>
+                <h3>Profit Optimization</h3>
+                <p>Then we cut waste, scale wins, and push your ROI through the roof.</p>
             </div>
         </div>
     </section>
@@ -1089,7 +1022,11 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-bottom" style="text-align:center; padding: 40px 0 0 0; color: var(--text-secondary); font-size: 1rem;">
+        <div class="footer-logo-center">
+            <img src="Screenshot_2025-06-21_122218-removebg-preview.png" alt="XcendLabs Logo" />
+            <span>XcendLabs</span>
+        </div>
+        <div class="footer-bottom" style="text-align:center; color: var(--text-secondary); font-size: 1rem;">
             &copy; 2025 XcendLabs
         </div>
     </footer>
@@ -1151,6 +1088,19 @@
                 form.reset();
                 setTimeout(() => status.style.display = 'none', 4000);
             });
+        }
+
+        // Blur-in effect for XcendLabs statement
+        const xcendIntro = document.querySelector('.xcend-intro .blur-in');
+        if (xcendIntro) {
+            const observer = new window.IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.9 });
+            observer.observe(xcendIntro);
         }
     </script>
 </body>
