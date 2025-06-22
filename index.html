@@ -212,7 +212,10 @@
         .nav-bar-flex {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             width: 100%;
+            min-height: 44px;
+            padding: 0 16px;
         }
         .nav-logo {
             display: flex;
@@ -647,8 +650,20 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 3rem;
+            nav {
+                top: 0px;
+                padding: 0px;
+            }
+            .hero {
+                padding-top: 0px;
+                margin-top: 0 !important;
+                height: auto;
+                min-height: 100vh;
+                align-items: flex-start;
+            }
+            .hero-content {
+                margin-top: 20vh;
+                margin-bottom: 0 !important;
             }
             
             .comparison-container {
@@ -668,31 +683,310 @@
                 display: none;
             }
             .book-call-btn {
-                padding: 10px 20px !important;
-                font-size: 0.9rem !important;
+                padding: 12px 24px !important;
+                font-size: 0.88rem !important;
+                margin: 16px auto !important;
+                width: 64% !important;
+                max-width: 200px !important;
+                text-align: center !important;
             }
-        }
-        @media (max-width: 480px) {
-            .services-grid {
-                grid-template-columns: 1fr;
+            nav {
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90vw;
+                max-width: 350px;
+                background: rgba(17, 17, 17, 0.95);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border: none;
+                border-radius: 18px;
+                box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+                z-index: 1000;
+                padding: 0;
+                margin: 0 auto;
             }
-            
-            .service-card {
-                padding: 30px 20px;
+            .nav-bar-flex {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                min-height: 44px;
+                padding: 0 16px;
             }
-            
-            .comparison-card {
-                padding: 30px 20px;
+            .nav-logo {
+                display: flex;
+                align-items: center;
+                margin: 0;
+                z-index: 1002;
+            }
+            .logo-img {
+                height: 24px;
+                width: auto;
+                display: block;
+            }
+            .nav-toggle {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                width: 24px;
+                height: 24px;
+                cursor: pointer;
+                background: none !important;
+                border: none !important;
+                outline: none;
+                z-index: 1002;
+                position: relative;
+                padding: 0;
+                margin: 0;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+            }
+            .nav-toggle span {
+                display: block;
+                width: 100%;
+                height: 3px;
+                background: #fff;
+                border-radius: 2px;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                transform-origin: center;
+            }
+            .nav-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(6px, 6px);
+            }
+            .nav-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .nav-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(6px, -6px);
             }
             .nav-links {
-                flex-wrap: wrap;
+                position: absolute;
+                top: 44px;
+                left: 50%;
+                transform: translateX(-50%) scaleY(0);
+                width: 76vw;
+                max-width: 300px;
+                background: rgba(24, 24, 24, 0.98);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
                 justify-content: center;
+                gap: 0;
+                list-style: none;
+                z-index: 1001;
+                border-radius: 0 0 18px 18px;
+                box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+                padding: 0;
+                margin: 0;
+                transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                overflow: hidden;
             }
-            
-            .book-call-btn {
-                margin-top: 10px;
+            .nav-links.open {
+                transform: translateX(-50%) scaleY(1);
+            }
+            .nav-links li {
+                margin: 0;
+                padding: 0;
                 width: 100%;
                 text-align: center;
+            }
+            .nav-links a {
+                display: block;
+                padding: 20px 40px;
+                color: #fff;
+                font-size: 1.3rem;
+                font-weight: 500;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                width: 100%;
+                opacity: 1;
+                transform: none;
+            }
+            .nav-links a:last-child {
+                border-bottom: none;
+            }
+            .nav-links a:hover,
+            .nav-links a:focus {
+                background: rgba(255, 107, 107, 0.1);
+                color: #ff6b6b;
+            }
+            .book-call-btn {
+                background: linear-gradient(45deg, #ff6b6b, #4ecdc4) !important;
+                color: white !important;
+                padding: 12px 24px !important;
+                border-radius: 24px !important;
+                font-weight: 600 !important;
+                font-size: 0.88rem !important;
+                box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3) !important;
+                border: none !important;
+                margin: 16px auto !important;
+                width: 64% !important;
+                max-width: 200px !important;
+                text-align: center !important;
+            }
+            .book-call-btn:hover,
+            .book-call-btn:focus {
+                background: linear-gradient(45deg, #ff6b6b, #4ecdc4) !important;
+                opacity: 0.9 !important;
+                transform: translateY(-2px) !important;
+            }
+            body.nav-open {
+                overflow: hidden;
+            }
+            .hero-content p {
+                font-size: 20.8px !important;
+                line-height: 28px !important;
+                display: none;
+            }
+            .mobile-hero-desc {
+                font-size: 28px !important;
+                color: #fff !important;
+            }
+            .xcend-intro .blur-in {
+                font-size: 25px !important;
+                line-height: 32px !important;
+                padding-left: 16px !important;
+                padding-right: 16px !important;
+                margin-top: 0 !important;
+            }
+            #comparison .section-title.gradient-text {
+                font-size: 33px !important;
+            }
+            .comparison-title.others {
+                font-size: 1.87rem !important;
+            }
+            .comparison-title.xcend {
+                font-size: 1.98rem !important;
+            }
+            .process-title.gradient-text {
+                font-size: 33px !important;
+            }
+            .scale-title.gradient-text {
+                font-size: 32px !important;
+            }
+            .scale-description {
+                font-size: 0.99rem !important;
+            }
+            .process-title.gradient-text,
+            .scale-title.gradient-text,
+            #comparison .section-title.gradient-text,
+            #services .section-title.gradient-text {
+                font-family: 'Plus Jakarta Sans', 'Plus Jakarta Sans Placeholder', sans-serif !important;
+                font-weight: 600 !important;
+                color: rgb(252,252,250) !important;
+                -webkit-text-fill-color: rgb(252,252,250) !important;
+                background: none !important;
+                background-clip: border-box !important;
+                font-size: 33px !important;
+                line-height: 36px !important;
+            }
+            .service-icon {
+                width: 44.8px;
+                height: 44.8px;
+                font-size: 1.152rem;
+                margin-bottom: 16px;
+            }
+            .process-icon {
+                font-size: 2.24rem;
+            }
+            .mobile-hero-bar {
+                width: fit-content !important;
+                min-width: 120px;
+                max-width: 90vw;
+                margin: 0 auto 40px auto !important;
+                padding-left: 12px !important;
+                padding-right: 12px !important;
+            }
+            .mobile-hero-bar {
+                font-weight: 400;
+            }
+            .xcend-intro {
+                margin-top: 0 !important;
+                padding-top: 0 !important;
+            }
+            section.xcend-intro[style] {
+                margin-top: 0 !important;
+                padding-top: 0 !important;
+            }
+            .hero {
+                margin-bottom: 0 !important;
+            }
+            .hero-content {
+                margin-bottom: 0 !important;
+            }
+            .hero .cta-button {
+                margin-bottom: 0 !important;
+            }
+            .xcend-intro {
+                margin-top: 0 !important;
+                padding-top: 0 !important;
+            }
+            .xcend-intro .blur-in {
+                margin-top: 0 !important;
+            }
+            .process-steps {
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+            .process-step {
+                margin: 0 auto 20px auto !important;
+                padding-left: 16px !important;
+                padding-right: 16px !important;
+                padding-top: 32px !important;
+                padding-bottom: 24px !important;
+                width: 100%;
+                max-width: 400px;
+                box-sizing: border-box;
+            }
+            .mobile-welcome {
+                font-family: 'Plus Jakarta Sans', sans-serif !important;
+                font-weight: 300!important;
+            }
+            .mobile-welcome {
+                font-size: 1.45rem !important;
+            }
+        }
+        @media (min-width: 769px) {
+            nav {
+                padding: 8.78px 17.55px;
+            }
+            .nav-bar-flex {
+                min-height: 33.66px;
+                padding: 0 12.24px;
+            }
+            .nav-logo {
+                margin-right: 16.83px;
+            }
+            .logo-img {
+                height: 18.72px;
+            }
+            .nav-toggle {
+                display: none;
+            }
+            .nav-links {
+                position: static;
+                transform: none;
+                background: none;
+                backdrop-filter: none;
+                height: auto;
+                width: auto;
+                flex-direction: row;
+                justify-content: flex-end;
+                gap: 20px;
+            }
+            .nav-links a {
+                opacity: 1;
+                transform: none;
+                padding: 8px 16px;
+                font-size: 1rem;
+                border-bottom: none;
+                width: auto;
             }
         }
 
@@ -869,6 +1163,84 @@
             opacity: 1;
             filter: blur(0);
         }
+
+        /* Show 'Welcome to' only on mobile */
+        @media (min-width: 769px) {
+            .mobile-welcome { display: none !important; }
+        }
+        @media (max-width: 768px) {
+            .mobile-welcome {
+                display: block;
+                font-family: 'Press Start 2P', 'VT323', 'Courier New', Courier, monospace, 'Satoshi', 'Satoshi Placeholder', sans-serif;
+                font-weight: 500;
+                color: rgb(252,252,250);
+                font-size: 1.45rem;
+                margin-bottom: 8px;
+                letter-spacing: 1px;
+                text-align: center;
+                width: fit-content;
+                margin-left: auto;
+                margin-right: auto;
+                white-space: nowrap;
+                overflow: hidden;
+                animation: typingWelcome 1.2s steps(11, end) 0.2s 1 normal both;
+                text-rendering: optimizeSpeed;
+                image-rendering: pixelated;
+                -webkit-font-smoothing: none;
+                font-smooth: never;
+            }
+            @keyframes typingWelcome {
+                from { width: 0 }
+                to { width: 11ch }
+            }
+        }
+
+        .mobile-hero-bar glass-effect {
+            display: block;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            border: none;
+            box-shadow: none;
+            color: rgb(252,252,250);
+            font-family: 'Satoshi', 'Satoshi Placeholder', sans-serif;
+            font-weight: 400;
+            font-size: 0.82rem;
+            text-align: center;
+            margin: 0 auto 40px auto;
+            padding: 12px 18px;
+            max-width: 72vw;
+            width: fit-content;
+            letter-spacing: 0.5px;
+            border-radius: 18px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+            white-space: nowrap;
+            overflow: auto;
+            text-overflow: ellipsis;
+        }
+        @media (min-width: 769px) {
+            .mobile-hero-bar, .mobile-hero-desc { display: none !important; }
+        }
+        @media (max-width: 768px) {
+            .mobile-hero-bar { display: block !important; }
+            .mobile-hero-desc { display: block !important; }
+        }
+
+        @media (min-width: 769px) {
+            .desktop-hero-desc {
+                display: block;
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                font-size: 1.45rem;
+                line-height: 1.5;
+                color: #fff;
+                margin: 0 auto 32px auto;
+                max-width: 700px;
+                text-align: center;
+            }
+        }
+        @media (max-width: 768px) {
+            .desktop-hero-desc {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -883,13 +1255,20 @@
     <!-- Navigation -->
     <nav class="glass-effect" role="navigation" aria-label="Main navigation">
         <div class="nav-bar-flex">
-            <span class="nav-logo"><img src="Screenshot_2025-06-21_122218-removebg-preview.png" alt="XcendLabs Logo" class="logo-img"></span>
-            <ul class="nav-links">
+            <span class="nav-logo">
+                <img src="Screenshot_2025-06-21_122218-removebg-preview.png" alt="XcendLabs Logo" class="logo-img">
+            </span>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="mainNav">
                 <li><a href="#home" aria-label="Go to home section">Home</a></li>
                 <li><a href="#services" aria-label="Go to services section">Services</a></li>
                 <li><a href="#comparison" aria-label="Go to comparison section">Why Us</a></li>
                 <li><a href="#process" aria-label="Go to process section">Process</a></li>
-                <li><a href="https://calendly.com/xcendlabs/30min" target="_blank" rel="noopener" class="book-call-btn" aria-label="Book a Call"><span>Book a Call</span></a></li>
+                <li><a href="https://calendly.com/xcendlabs/30min" target="_blank" rel="noopener" class="book-call-btn" aria-label="Book a Call">Book a Call</a></li>
             </ul>
         </div>
     </nav>
@@ -898,8 +1277,10 @@
     <section class="hero" id="home" role="banner">
         <div class="particles" aria-hidden="true"></div>
         <div class="hero-content">
+            <div class="mobile-hero-bar glass-effect">Automate. Scale. Dominate.</div>
             <h1 class="gradient-text">XcendLabs</h1>
-            <p>We build <strong>badass AI automations</strong> that transform businesses and skyrocket growth. From intelligent workflows to cutting-edge solutions that deliver real results.</p>
+            <p class="desktop-hero-desc">We build badass AI automations that transform businesses and skyrocket growth. From intelligent workflows to cutting-edge solutions that deliver real results.</p>
+            <p class="mobile-hero-desc">We design AI systems that eliminate bottlenecks and unlock real, measurable growth.</p>
             <a href="https://calendly.com/xcendlabs/30min" target="_blank" rel="noopener" class="cta-button" aria-label="Start your business transformation">Start Your Transformation</a>
         </div>
     </section>
@@ -1032,11 +1413,57 @@
 
     <!-- Scripts -->
     <script>
-        // Toggle mobile nav
+        // Mobile navigation toggle functionality
         const navToggle = document.getElementById('navToggle');
         const mainNav = document.getElementById('mainNav');
+        const body = document.body;
+
         if (navToggle && mainNav) {
-            navToggle.addEventListener('click', () => mainNav.classList.toggle('open'));
+            navToggle.addEventListener('click', function() {
+                // Toggle menu
+                mainNav.classList.toggle('open');
+                navToggle.classList.toggle('active');
+                body.classList.toggle('nav-open');
+                // Update aria-label
+                const isOpen = mainNav.classList.contains('open');
+                navToggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+            });
+            // Handle keyboard navigation
+            navToggle.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    navToggle.click();
+                }
+            });
+            // Close menu when clicking on nav links
+            const navLinks = mainNav.querySelectorAll('a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mainNav.classList.remove('open');
+                    navToggle.classList.remove('active');
+                    body.classList.remove('nav-open');
+                    navToggle.setAttribute('aria-label', 'Open navigation');
+                });
+            });
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!navToggle.contains(e.target) && !mainNav.contains(e.target)) {
+                    mainNav.classList.remove('open');
+                    navToggle.classList.remove('active');
+                    body.classList.remove('nav-open');
+                    navToggle.setAttribute('aria-label', 'Open navigation');
+                }
+            });
+            // Handle escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && mainNav.classList.contains('open')) {
+                    mainNav.classList.remove('open');
+                    navToggle.classList.remove('active');
+                    body.classList.remove('nav-open');
+                    navToggle.setAttribute('aria-label', 'Open navigation');
+                    navToggle.focus();
+                }
+            });
         }
 
         // Hide loading screen
